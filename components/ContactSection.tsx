@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { hover, motion } from 'framer-motion';
+import { Github, Linkedin, Scale, Twitter } from 'lucide-react';
 import { SiLeetcode, SiCodechef, SiHackerrank, SiCodeforces, SiHackerearth, SiKaggle, SiStackoverflow, SiWhatsapp } from "react-icons/si";
 import { useTheme } from '@/context/ThemeContext';
 
@@ -60,7 +60,7 @@ export default function ContactSection() {
             <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
 
                 {/* Social Media Links */}
-                <div className="flex gap-4 mt-6">
+                <div className="flex gap-4 mt-6" >
                     <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><Github size={24} /></a>
                     <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin size={24} /></a>
                     <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><Twitter size={24} /></a>

@@ -11,6 +11,7 @@ import BlogsSection from '@/components/BlogSection';
 import Preloader from '@/components/Preloader';
 import ContactSection from '@/components/ContactSection';
 import CLI from '@/components/CLI'; // ✅ Import CLI Component
+import { Analytics } from "@vercel/analytics/react"
 
 const HomePage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +28,7 @@ const HomePage = () => {
             ) : (
                 <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-background-dark' : 'bg-background-light'}`}>
                     <MatrixBackground />
+                    <Analytics />
                     <HeroSection isDark={isDark} />
                     <AboutSection />
                     <div id='projects'>
