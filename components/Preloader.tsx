@@ -6,15 +6,18 @@ export default function Preloader({ onLoaded }: { onLoaded: () => void }) {
     const [logs, setLogs] = useState<string[]>([]);
     const [loadingComplete, setLoadingComplete] = useState(false);
 
-    const bootLogs = [
-        "> Initializing Neural Core...",
-        "> Loading AI models...",
-        "> Fetching system parameters...",
-        "> Establishing secure connection...",
-        "> Boot complete! Launching interface..."
-    ];
+
 
     useEffect(() => {
+        
+        const bootLogs = [
+            "> Initializing Neural Core...",
+            "> Loading AI models...",
+            "> Fetching system parameters...",
+            "> Establishing secure connection...",
+            "> Boot complete! Launching interface..."
+        ];
+
         let logIndex = 0;
         let charIndex = 0;
         let currentText = "";
@@ -44,7 +47,7 @@ export default function Preloader({ onLoaded }: { onLoaded: () => void }) {
         };
 
         typeNextCharacter();
-    }, [onLoaded]);
+    }, [ onLoaded]);
 
     return (
         <motion.div

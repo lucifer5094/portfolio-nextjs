@@ -52,10 +52,28 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1 }}
                 className="text-4xl font-bold mb-12 text-center font-mono"
             >
-                Let's Connect
+                Let&apos;s Connect
             </motion.h2>
 
+
+
             <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
+
+                {/* Social Media Links */}
+                <div className="flex gap-4 mt-6">
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><Github size={24} /></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin size={24} /></a>
+                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><Twitter size={24} /></a>
+                    <a href="https://leetcode.com/yourusername" target="_blank" rel="noopener noreferrer"><SiLeetcode size={24} /></a>
+                    <a href="https://www.codechef.com/users/yourusername" target="_blank" rel="noopener noreferrer"><SiCodechef size={24} /></a>
+                    <a href="https://www.hackerrank.com/yourusername" target="_blank" rel="noopener noreferrer"><SiHackerrank size={24} /></a>
+                    <a href="https://codeforces.com/profile/yourusername" target="_blank" rel="noopener noreferrer"><SiCodeforces size={24} /></a>
+                    <a href="https://www.hackerearth.com/@yourusername" target="_blank" rel="noopener noreferrer"><SiHackerearth size={24} /></a>
+                    <a href="https://www.kaggle.com/yourusername" target="_blank" rel="noopener noreferrer"><SiKaggle size={24} /></a>
+                    <a href="https://stackoverflow.com/users/youruserid/yourusername" target="_blank" rel="noopener noreferrer"><SiStackoverflow size={24} /></a>
+                    <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer"><SiWhatsapp size={24} /></a>
+                </div>
+
                 <motion.form
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -93,6 +111,8 @@ export default function ContactSection() {
                         <p className="text-center text-sm font-semibold mt-2">{successMessage}</p>
                     )}
                 </motion.form>
+
+
             </div>
         </section>
     );

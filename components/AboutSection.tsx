@@ -40,18 +40,19 @@ export default function AboutSection() {
           <div className="p-6 font-mono">
             <p className="text-emerald-400">$ whoami</p>
             <p className="mt-4 opacity-75">
-              "Welcome to My Digital Playground 🚀" <br />
-              I'm Ankit Raj, an AI/ML Developer crafting intelligent, scalable, and futuristic systems. <br /><br />
+              &quot;Welcome to My Digital Playground 🚀&quot; <br />
+              I&apos;m Ankit Raj, an AI/ML Developer crafting intelligent, scalable, and futuristic systems. <br /><br />
 
               🧠 Turning raw data into real-world impact <br />
               💻 Breaking algorithms & automating the impossible <br />
               ⚡ Passionate about Deep Learning, NLP & Computer Vision <br />
               🚀 Building, optimizing, and pushing AI boundaries! <br /> <br />
 
-              "Code. Train. Deploy. Innovate." <br /> <br />
+              &quot;Code. Train. Deploy. Innovate.&quot; <br /> <br />
 
               💀 Ready to explore the future? Let’s dive in! 💀
             </p>
+
           </div>
         </div>
 

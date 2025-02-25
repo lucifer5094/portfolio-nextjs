@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FileCode } from 'lucide-react';
-import webDesinImage from '../assets/images/web_design.png';
+import Image from 'next/image';
+import webImage from '../assets/images/web_design.png'
 import pythonImage from '../assets/images/python.png';
 import sqlImage from '../assets/images/sqlBasic.png';
 import cssImage from '../assets/images/css.png';
@@ -10,7 +11,7 @@ const certifications = [
         id: 1,
         title: 'Responsive Web Design',
         issuer: 'freeCodeCamp',
-        logo: webDesinImage,
+        logo: webImage,
         link: 'https://www.freecodecamp.org/certification/lucifer5094/responsive-web-design'
     },
     {
@@ -47,8 +48,6 @@ export default function Certifications() {
                 <div className="inline mr-2 flex justify-center gap-4 align-center">
                     <FileCode /> Certifications
                 </div>
-                
-
             </motion.h2>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -60,8 +59,17 @@ export default function Certifications() {
                         transition={{ delay: index * 0.2 }}
                         className="p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-gray-900 hover:bg-gray-800 text-white"
                     >
-                        <div className="flex items-center gap-4">
-                            <img src={typeof cert.logo === 'string' ? cert.logo : cert.logo.src} alt={cert.issuer} className="w-12 h-12 rounded-full" />
+                        <div className="flex items-center gap-4 ">
+
+                            <Image
+
+                                src={cert.logo}
+                                alt={cert.issuer}
+                                width={48} // Fixed size for Next.js optimization
+                                height={48}
+                                className="rounded-full"
+                            />
+
                             <div>
                                 <h3 className="text-xl font-bold">{cert.title}</h3>
                                 <p className="text-emerald-400 mt-1">{cert.issuer}</p>
