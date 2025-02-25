@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --dark-bg: #000000;
+    --light-bg: linear-gradient(to right,
+            rgba(108, 0, 255, 0.1),
+            rgba(0, 209, 255, 0.1));
+
+    /* ===== Color Palette ===== */
+    --primary-color: #0ff0fc;
+    /* Neon Cyan - Used for main highlights */
+    --secondary-color: #ff00ff;
+    /* Neon Magenta - Used for secondary highlights */
+    --background-dark: #0a0a0a;
+    /* Almost Black - Dark mode background */
+    --background-light: #f5f5f5;
+    /* Light Gray - Light mode background */
+    --text-color-light: #ffffff;
+    /* White - Used for dark mode text */
+    --text-color-dark: #1e1e1e;
+    /* Dark Gray - Used for light mode text */
+    --accent-color: #ffcc00;
+    /* Bright Yellow - Used for special buttons & alerts */
+
+    /* ===== Gradients ===== */
+    --gradient-primary: linear-gradient(135deg, #0ff0fc, #ff00ff);
+    /* Cyan to Magenta */
+    --gradient-secondary: linear-gradient(135deg, #ffcc00, #ff00ff);
+    /* Yellow to Magenta */
+
+    /* ===== Font Settings ===== */
+    --font-family-primary: 'Poppins', sans-serif;
+    --font-family-monospace: 'Fira Code', monospace;
+    --font-size-xs: 12px;
+    /* Used for small captions */
+    --font-size-sm: 14px;
+    /* Used for general text */
+    --font-size-md: 16px;
+    /* Used for body text */
+    --font-size-lg: 20px;
+    /* Used for headings */
+    --font-size-xl: 24px;
+    /* Used for section titles */
+    --font-size-xxl: 32px;
+    /* Used for main titles */
+
+    /* ===== Spacing ===== */
+    --spacing-xs: 4px;
+    /* Small padding/margin */
+    --spacing-sm: 8px;
+    /* Regular spacing */
+    --spacing-md: 16px;
+    /* Medium spacing */
+    --spacing-lg: 24px;
+    /* Large spacing */
+    --spacing-xl: 32px;
+    /* Extra large spacing */
+    --spacing-xxl: 48px;
+    /* Huge spacing */
+
+    /* ===== Border Radius ===== */
+    --border-radius-sm: 4px;
+    /* Slightly rounded corners */
+    --border-radius-md: 8px;
+    /* Default rounded corners */
+    --border-radius-lg: 16px;
+    /* More rounded elements */
+
+    /* ===== Shadows ===== */
+    --shadow-sm: 0px 2px 4px rgba(0, 255, 255, 0.2);
+    /* Light glow effect */
+    --shadow-md: 0px 4px 8px rgba(255, 0, 255, 0.3);
+    /* Medium glow */
+    --shadow-lg: 0px 8px 16px rgba(255, 204, 0, 0.4);
+    /* Stronger glow */
+
+    /* ===== Transitions ===== */
+    --transition-fast: 0.2s ease-in-out;
+    /* Fast animations */
+    --transition-medium: 0.4s ease-in-out;
+    /* Default animation */
+    --transition-slow: 0.6s ease-in-out;
+    /* Slow animations */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Index Page Starts Here */
+
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d;
+    }
+
+    50% {
+        text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d;
+    }
+}
+
+.neon-text {
+    animation: neon-pulse 2s infinite;
+}
+
+/* Custom Terminal Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1a1a1a;
+    /* Equivalent to bg-gray-900 */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #10b981;
+    /* Equivalent to bg-emerald-500 */
+    border-radius: 9999px;
+    /* Equivalent to rounded-full */
+}
+
+
+@layer utilities {
+
+
+    .neon-text {
+        text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d;
+        animation: neon-pulse 2s infinite;
+    }
+
+    .glow-avatar {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 157, 0.5));
+    }
+
+    @keyframes neon-pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.7;
+        }
+    }
+
+    /* Matrix Rain Effect */
+    .matrix-bg::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg,
+                rgba(0, 255, 157, 0.1) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(0, 255, 157, 0.1) 50%,
+                rgba(0, 255, 157, 0.1) 75%,
+                transparent 75%,
+                transparent);
+        background-size: 4px 4px;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+}
+
+/* Index Page Ends Here */
