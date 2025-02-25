@@ -61,17 +61,17 @@ export default function ContactSection() {
 
                 {/* Social Media Links */}
                 <div className="flex gap-4 mt-6" >
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><Github size={24} /></a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin size={24} /></a>
-                    <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><Twitter size={24} /></a>
-                    <a href="https://leetcode.com/yourusername" target="_blank" rel="noopener noreferrer"><SiLeetcode size={24} /></a>
-                    <a href="https://www.codechef.com/users/yourusername" target="_blank" rel="noopener noreferrer"><SiCodechef size={24} /></a>
-                    <a href="https://www.hackerrank.com/yourusername" target="_blank" rel="noopener noreferrer"><SiHackerrank size={24} /></a>
-                    <a href="https://codeforces.com/profile/yourusername" target="_blank" rel="noopener noreferrer"><SiCodeforces size={24} /></a>
-                    <a href="https://www.hackerearth.com/@yourusername" target="_blank" rel="noopener noreferrer"><SiHackerearth size={24} /></a>
-                    <a href="https://www.kaggle.com/yourusername" target="_blank" rel="noopener noreferrer"><SiKaggle size={24} /></a>
-                    <a href="https://stackoverflow.com/users/youruserid/yourusername" target="_blank" rel="noopener noreferrer"><SiStackoverflow size={24} /></a>
-                    <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer"><SiWhatsapp size={24} /></a>
+                    <a href="https://github.com/lucifer5094" target="_blank" rel="noopener noreferrer"><Github size={24} /></a>
+                    <a href="https://linkedin.com/in/lucifer5094" target="_blank" rel="noopener noreferrer"><Linkedin size={24} /></a>
+                    <a href="https://x.com/AnkitRa55161882" target="_blank" rel="noopener noreferrer"><Twitter size={24} /></a>
+                    <a href="https://leetcode.com/u/lucifer5094/" target="_blank" rel="noopener noreferrer"><SiLeetcode size={24} /></a>
+                    <a href="https://www.codechef.com/users/lucifer5094" target="_blank" rel="noopener noreferrer"><SiCodechef size={24} /></a>
+                    <a href="https://www.hackerrank.com/profile/lucifer5094" target="_blank" rel="noopener noreferrer"><SiHackerrank size={24} /></a>
+                    <a href="https://codeforces.com/profile/Ankitraj5094" target="_blank" rel="noopener noreferrer"><SiCodeforces size={24} /></a>
+                    <a href="https://www.hackerearth.com/@ankitraj85455" target="_blank" rel="noopener noreferrer"><SiHackerearth size={24} /></a>
+                    <a href="https://www.kaggle.com/lucifer5094" target="_blank" rel="noopener noreferrer"><SiKaggle size={24} /></a>
+                    <a href="https://stackoverflow.com/users/23595116/lucifer" target="_blank" rel="noopener noreferrer"><SiStackoverflow size={24} /></a>
+                    <a href="https://wa.me/917492092001" target="_blank" rel="noopener noreferrer"><SiWhatsapp size={24} /></a>
                 </div>
 
                 <motion.form
