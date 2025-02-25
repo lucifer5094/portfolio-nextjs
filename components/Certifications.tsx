@@ -28,11 +28,11 @@ const certifications = [
         link: 'https://www.hackerrank.com/certificates/de8f1fb021df',
     },
     {
-        id : 4,
-        title : 'CSS (Basic)',
-        issuer : 'HackerRank',
-        logo : cssImage,
-        link : 'https://www.hackerrank.com/certificates/4c74b14781fd',
+        id: 4,
+        title: 'CSS (Basic)',
+        issuer: 'HackerRank',
+        logo: cssImage,
+        link: 'https://www.hackerrank.com/certificates/4c74b14781fd',
     }
 ];
 
@@ -44,8 +44,11 @@ export default function Certifications() {
                 whileInView={{ opacity: 1 }}
                 className="text-4xl font-bold mb-12 text-center font-mono text-emerald-400"
             >
-                <FileCode className="inline mr-2" />
-                Certifications
+                <div className="inline mr-2 flex justify-center gap-4 align-center">
+                    <FileCode /> Certifications
+                </div>
+                
+
             </motion.h2>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

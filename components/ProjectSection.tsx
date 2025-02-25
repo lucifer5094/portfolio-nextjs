@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import waterImage from '../assets/images/water_pollution.jpg';
 import quizNovaImage from '../assets/images/quiznova.png';
+import React from 'react';
 
 const completedProjects = [
   {
@@ -86,6 +87,8 @@ export default function ProjectsSection() {
   );
 }
 
+
+
 function ProjectCard({ project, index }) {
   return (
     <motion.div
@@ -95,12 +98,14 @@ function ProjectCard({ project, index }) {
       className="group relative overflow-hidden rounded-xl border border-emerald-500/30 hover:shadow-lg transition-shadow"
     >
       <div className="h-64 relative">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+        <div className="object-cover group-hover:scale-105 transition-transform duration-300">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent" />
       </div>
 

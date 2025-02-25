@@ -61,12 +61,14 @@ export default function HeroSection({ isDark }: { isDark: boolean }) {
                 whileHover={{ rotateY: 15, rotateX: 15, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 150, damping: 10 }}
             >
-                <Image
-                    src={avatar}
-                    alt='Avatar'
-                    fill
-                    className="rounded-full border-4 border-emerald-500"
-                />
+                <div className="rounded-full border-4 border-emerald-500">
+                    <Image
+                        src={avatar}
+                        alt='Avatar'
+                        fill
+
+                    />
+                </div>
             </motion.div>
 
 

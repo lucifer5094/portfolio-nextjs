@@ -1,6 +1,6 @@
-// components/AboutSection.tsx
 'use client';
 import { motion } from 'framer-motion';
+import { IconContext } from 'react-icons';
 import {
   SiPython, SiTensorflow, SiPytorch, SiNextdotjs, SiTailwindcss,
   SiKeras, SiHuggingface, SiScikitlearn, SiPandas, SiNumpy,
@@ -57,18 +57,20 @@ export default function AboutSection() {
 
         {/* Tech Stack Grid */}
         <div className="grid grid-cols-5 gap-4">
-          {techStack.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="p-4 rounded-lg border border-emerald-500/20 hover:bg-emerald-500/10 flex flex-col items-center"
-            >
-              <tech.icon className="w-12 h-12 mb-2" />
-              <span className="text-sm">{tech.name}</span>
-            </motion.div>
-          ))}
+          <IconContext.Provider value={{ className: "w-12 h-12 mb-2" }}>
+            {techStack.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="p-4 rounded-lg border border-emerald-500/20 hover:bg-emerald-500/10 flex flex-col items-center"
+              >
+                <tech.icon />
+                <span className="text-sm">{tech.name}</span>
+              </motion.div>
+            ))}
+          </IconContext.Provider>
         </div>
       </div>
     </section>
