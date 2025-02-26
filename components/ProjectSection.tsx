@@ -98,14 +98,16 @@ function ProjectCard({ project, index }) {
       className="group relative overflow-hidden rounded-xl border border-emerald-500/30 hover:shadow-lg transition-shadow"
     >
       <div className="h-64 relative">
-        <div className="object-cover group-hover:scale-105 transition-transform duration-300">
+        <div className="relative w-full h-64 overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
-            fill
-
+            layout="fill"
+            objectFit="cover"
+            className="group-hover:scale-105 transition-transform duration-300"
           />
         </div>
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent" />
       </div>
 
