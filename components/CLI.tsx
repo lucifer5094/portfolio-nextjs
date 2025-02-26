@@ -2,18 +2,20 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
 
 const CLI = () => {
     const [showCli, setShowCli] = useState(false);
     const [command, setCommand] = useState("");
     const [output, setOutput] = useState("");
+    const { isDark, toggleTheme } = useTheme(); // Theme context
 
     const handleCommand = (e) => {
         e.preventDefault();
 
         switch (command.toLowerCase().trim()) {
             case "help":
-                setOutput("Available commands:\n• help - Show commands\n• projects - Jump to projects\n• certifications - Jump to Certifications\n• blogs - Jump to Latest Blogs\n• contact - Show contact info");
+                setOutput("Available commands:\n• help - Show commands\n• projects - Jump to projects\n• certifications - Jump to Certifications\n• blogs - Jump to Latest Blogs\n• contact - Show contact info\n• toggle theme - Switch between Light/Dark mode");
                 break;
             case "projects":
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -31,17 +33,19 @@ const CLI = () => {
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 setOutput("Showing contact info...");
                 break;
+            case "toggle theme":
+                toggleTheme();
+                setOutput(`Theme switched to ${isDark ? "Light" : "Dark"} mode!`);
+                break;
             default:
                 setOutput(`Unknown command: "${command}"\nType 'help' for a list of commands.`);
         }
-
         setCommand("");
     };
-
     return (
         <>
-            {/* CLI Button */}
-            <div className="fixed bottom-4 right-4 z-50">
+
+            <div className="fixed bottom-4 transition-all hover:scale-125 right-4 z-50 bg-gray-900 shadow-xl text-white  rounded-full">
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     onClick={() => setShowCli(!showCli)}
@@ -51,7 +55,6 @@ const CLI = () => {
                 </motion.button>
             </div>
 
-            {/* CLI Interface */}
             <AnimatePresence>
                 {showCli && (
                     <motion.div
@@ -62,13 +65,11 @@ const CLI = () => {
                     >
                         <div className="font-mono text-sm">
                             <p className="text-emerald-400">$  Command Line Interface</p>
-
                             {output && (
-                                <div className="mt-3 p-2 bg-gray-800 rounded text-gray-300 whitespace-pre-line">
+                                <div className="mt-3 p-2  rounded text-gray-300 whitespace-pre-line">
                                     {output}
                                 </div>
                             )}
-
                             <form onSubmit={handleCommand}>
                                 <input
                                     type="text"
@@ -86,5 +87,4 @@ const CLI = () => {
         </>
     );
 };
-
 export default CLI;
