@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { hover, motion } from 'framer-motion';
-import { Github, Linkedin, Scale, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import { SiLeetcode, SiCodechef, SiHackerrank, SiCodeforces, SiHackerearth, SiKaggle, SiStackoverflow, SiWhatsapp } from "react-icons/si";
 import { useTheme } from '@/context/ThemeContext';
 
@@ -60,19 +60,32 @@ export default function ContactSection() {
             <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
 
                 {/* Social Media Links */}
-                <div className="flex gap-4 mt-6" >
-                    <a href="https://github.com/lucifer5094" target="_blank" rel="noopener noreferrer"><Github size={24} /></a>
-                    <a href="https://linkedin.com/in/lucifer5094" target="_blank" rel="noopener noreferrer"><Linkedin size={24} /></a>
-                    <a href="https://x.com/AnkitRa55161882" target="_blank" rel="noopener noreferrer"><Twitter size={24} /></a>
-                    <a href="https://leetcode.com/u/lucifer5094/" target="_blank" rel="noopener noreferrer"><SiLeetcode size={24} /></a>
-                    <a href="https://www.codechef.com/users/lucifer5094" target="_blank" rel="noopener noreferrer"><SiCodechef size={24} /></a>
-                    <a href="https://www.hackerrank.com/profile/lucifer5094" target="_blank" rel="noopener noreferrer"><SiHackerrank size={24} /></a>
-                    <a href="https://codeforces.com/profile/Ankitraj5094" target="_blank" rel="noopener noreferrer"><SiCodeforces size={24} /></a>
-                    <a href="https://www.hackerearth.com/@ankitraj85455" target="_blank" rel="noopener noreferrer"><SiHackerearth size={24} /></a>
-                    <a href="https://www.kaggle.com/lucifer5094" target="_blank" rel="noopener noreferrer"><SiKaggle size={24} /></a>
-                    <a href="https://stackoverflow.com/users/23595116/lucifer" target="_blank" rel="noopener noreferrer"><SiStackoverflow size={24} /></a>
-                    <a href="https://wa.me/917492092001" target="_blank" rel="noopener noreferrer"><SiWhatsapp size={24} /></a>
+                <div className="flex flex-wrap gap-4 mt-6">
+                    {[
+                        { href: "https://github.com/lucifer5094", icon: <Github size={24} />, color: "hover:text-gray-400" },
+                        { href: "https://linkedin.com/in/lucifer5094", icon: <Linkedin size={24} />, color: "hover:text-blue-500" },
+                        { href: "https://x.com/AnkitRa55161882", icon: <Twitter size={24} />, color: "hover:text-sky-500" },
+                        { href: "https://leetcode.com/u/lucifer5094/", icon: <SiLeetcode size={24} />, color: "hover:text-yellow-500" },
+                        { href: "https://www.codechef.com/users/lucifer5094", icon: <SiCodechef size={24} />, color: "hover:text-orange-500" },
+                        { href: "https://www.hackerrank.com/profile/lucifer5094", icon: <SiHackerrank size={24} />, color: "hover:text-green-500" },
+                        { href: "https://codeforces.com/profile/Ankitraj5094", icon: <SiCodeforces size={24} />, color: "hover:text-red-500" },
+                        { href: "https://www.hackerearth.com/@ankitraj85455", icon: <SiHackerearth size={24} />, color: "hover:text-purple-500" },
+                        { href: "https://www.kaggle.com/lucifer5094", icon: <SiKaggle size={24} />, color: "hover:text-blue-400" },
+                        { href: "https://stackoverflow.com/users/23595116/lucifer", icon: <SiStackoverflow size={24} />, color: "hover:text-orange-400" },
+                        { href: "https://wa.me/917492092001", icon: <SiWhatsapp size={24} />, color: "hover:text-green-400" },
+                    ].map((item, index) => (
+                        <a
+                            key={index}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`text-white transition-transform duration-300 transform hover:scale-125 ${item.color}`}
+                        >
+                            {item.icon}
+                        </a>
+                    ))}
                 </div>
+
 
                 <motion.form
                     initial={{ opacity: 0 }}
@@ -101,11 +114,17 @@ export default function ContactSection() {
                     <motion.button
                         type="submit"
                         whileHover={{ scale: 1.05 }}
-                        className={`w-full py-3 rounded-lg font-bold ${isDark ? 'bg-primary hover:bg-primary-dark' : 'bg-secondary hover:bg-secondary-dark'}`}
+                        className={`w-full py-3 rounded-lg font-bold transition-all duration-300 ${isSubmitting
+                            ? 'bg-gray-500 cursor-not-allowed'
+                            : isDark
+                                ? 'bg-blue-600 hover:bg-green-700'
+                                : 'bg-blue-600 hover:bg-green-700'
+                            }`}
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? "Sending..." : "Send Message"}
                     </motion.button>
+
 
                     {successMessage && (
                         <p className="text-center text-sm font-semibold mt-2">{successMessage}</p>
