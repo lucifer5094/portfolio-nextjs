@@ -1,9 +1,10 @@
-// components/MatrixBackground.tsx
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
   const fontSize = 14;
   const columns = useRef(0);
@@ -23,11 +24,18 @@ const MatrixBackground = () => {
       drops.current = Array(Math.floor(columns.current)).fill(0);
     };
 
+    // Check if element is in viewport to improve performance
+    const observer = new IntersectionObserver(
+      (entries) => setIsVisible(entries[0].isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
+
     window.addEventListener('resize', resize);
     resize();
 
     const draw = () => {
-      if (!ctx || !canvas) return;
+      if (!ctx || !canvas || !isVisible) return;
 
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -47,14 +55,18 @@ const MatrixBackground = () => {
         }
         drops.current[i]++;
       }
+      
+      animationRef.current = requestAnimationFrame(draw);
     };
 
-    const interval = setInterval(draw, 50);
+    draw();
+    
     return () => {
-      clearInterval(interval);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', resize);
+      observer.disconnect();
     };
-  }, []);
+  }, [isVisible]);
 
   return (
     <canvas

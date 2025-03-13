@@ -5,6 +5,16 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import waterImage from '../assets/images/water_pollution.jpg';
 import quizNovaImage from '../assets/images/quiznova.png';
 import React from 'react';
+import { StaticImageData } from 'next/image'; // Add this import
+
+interface Project {
+    title: string;
+    description: string;
+    tech: string;
+    image: string | StaticImageData; // Update to accept both string and StaticImageData
+    github: string;
+    demo: string;
+}
 
 const completedProjects = [
   {
@@ -89,7 +99,7 @@ export default function ProjectsSection() {
 
 
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -102,9 +112,8 @@ function ProjectCard({ project, index }) {
           <Image
             src={project.image}
             alt={project.title}
-            layout="fill"
-            objectFit="cover"
-            className="group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
 

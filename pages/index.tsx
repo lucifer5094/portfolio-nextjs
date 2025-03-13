@@ -4,21 +4,22 @@ import { useTheme } from '@/context/ThemeContext';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectSection';
-// import ThemeToggle from '@/components/ThemeToggle';
+import ThemeToggle from '@/components/ThemeToggle';
 import MatrixBackground from '@/components/MatrixBackground';
 import Certifications from '@/components/Certifications';
 import BlogsSection from '@/components/BlogSection';
 import Preloader from '@/components/Preloader';
 import ContactSection from '@/components/ContactSection';
-import CLI from '@/components/CLI'; // ✅ Import CLI Component
-import { Analytics } from "@vercel/analytics/react"
+import CLI from '@/components/CLI';
+import { Analytics } from "@vercel/analytics/react";
 
 const HomePage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { isDark } = useTheme();
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 12000);
+        const timer = setTimeout(() => setIsLoading(false), 12000);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -26,7 +27,7 @@ const HomePage = () => {
             {isLoading ? (
                 <Preloader onLoaded={() => setIsLoading(false)} />
             ) : (
-                <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-background-dark' : 'bg-background-light'}`}>
+                <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-background-dark' : 'light bg-background-light'}`}>
                     <MatrixBackground />
                     <Analytics />
                     <HeroSection isDark={isDark} />
@@ -45,7 +46,7 @@ const HomePage = () => {
                     </div>
 
                     <CLI />
-                    {/* <ThemeToggle /> */}
+                    <ThemeToggle />
                 </div>
             )}
         </>

@@ -1,6 +1,6 @@
-// context/ThemeContext.tsx
 'use client';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
+import { useTheme as useNextTheme } from 'next-themes';
 
 type ThemeContextType = {
   isDark: boolean;
@@ -13,12 +13,18 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [isDark, setIsDark] = useState(true);
+  const { theme, setTheme } = useNextTheme();
+  
+  const isDark = theme === 'dark';
+  
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
 
   return (
     <ThemeContext.Provider value={{
       isDark,
-      toggleTheme: () => setIsDark(!isDark),
+      toggleTheme,
     }}>
       {children}
     </ThemeContext.Provider>

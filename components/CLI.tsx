@@ -10,7 +10,7 @@ const CLI = () => {
     const [output, setOutput] = useState("");
     const { isDark, toggleTheme } = useTheme(); // Theme context
 
-    const handleCommand = (e) => {
+    const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         switch (command.toLowerCase().trim()) {

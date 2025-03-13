@@ -6,11 +6,11 @@ export default function Navbar() {
     <nav className="flex justify-between items-center p-4 bg-gray-900 text-white">
       <h1 className="text-xl font-bold">My Portfolio</h1>
       <div className="flex space-x-4">
-        <Link href="/">Home</Link>
-        <Link href="/projects">Projects</Link>
-        <Link href="/certifications">Certifications</Link>
-        <Link href="/blog">Blog</Link>
-        <Link href="/contact">Contact</Link>
+        <a href="#" className="hover:text-emerald-400 transition-colors">Home</a>
+        <a href="#projects" className="hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="#certifications" className="hover:text-emerald-400 transition-colors">Certifications</a>
+        <a href="#blogs" className="hover:text-emerald-400 transition-colors">Blog</a>
+        <a href="#contact" className="hover:text-emerald-400 transition-colors">Contact</a>
       </div>
       <ThemeToggle />
     </nav>
