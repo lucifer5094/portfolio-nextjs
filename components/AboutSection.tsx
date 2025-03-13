@@ -113,7 +113,7 @@ export default function AboutSection() {
         return () => clearTimeout(timer);
       }
     }
-  }, [visibleText, currentLine, playTypingSound]);
+  }, [visibleText, currentLine, playTypingSound, terminalLines]);
 
   // Handle line advancement
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function AboutSection() {
       setCommandExecuted(true);
       setIsTyping(false);
     }
-  }, [currentLine, visibleText, commandExecuted, isTyping]);
+  }, [currentLine, visibleText, commandExecuted, isTyping, terminalLines]);
 
   // Blinking cursor effect
   useEffect(() => {
