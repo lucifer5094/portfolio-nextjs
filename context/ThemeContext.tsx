@@ -1,30 +1,26 @@
 'use client';
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { useTheme as useNextTheme } from 'next-themes';
 
 type ThemeContextType = {
   isDark: boolean;
-  toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
   isDark: true,
-  toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { theme, setTheme } = useNextTheme();
+  const { setTheme } = useNextTheme();
   
-  const isDark = theme === 'dark';
-  
-  const toggleTheme = () => {
-    setTheme(isDark ? 'light' : 'dark');
-  };
+  // Always set theme to dark on mount
+  useEffect(() => {
+    setTheme('dark');
+  }, [setTheme]);
 
   return (
     <ThemeContext.Provider value={{
-      isDark,
-      toggleTheme,
+      isDark: true,
     }}>
       {children}
     </ThemeContext.Provider>

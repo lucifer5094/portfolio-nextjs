@@ -4,7 +4,6 @@ import { useTheme } from '@/context/ThemeContext';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectSection';
-import ThemeToggle from '@/components/ThemeToggle';
 import MatrixBackground from '@/components/MatrixBackground';
 import Certifications from '@/components/Certifications';
 import BlogsSection from '@/components/BlogSection';
@@ -27,26 +26,28 @@ const HomePage = () => {
             {isLoading ? (
                 <Preloader onLoaded={() => setIsLoading(false)} />
             ) : (
-                <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-background-dark' : 'light bg-background-light'}`}>
+                <div className="min-h-screen w-full overflow-hidden transition-colors duration-500 bg-background-dark">
                     <MatrixBackground />
                     <Analytics />
-                    <HeroSection isDark={isDark} />
-                    <AboutSection />
-                    <div id='projects'>
-                        <ProjectsSection />
-                    </div>
-                    <div className="certifications">
-                        <Certifications />
-                    </div>
-                    <div className="blogs">
-                        <BlogsSection />
-                    </div>
-                    <div className="contact">
-                        <ContactSection />
+                    {/* Content container with max-width to prevent overflow */}
+                    <div className="relative w-full mx-auto">
+                        <HeroSection isDark={true} />
+                        <AboutSection />
+                        <div id='projects' className="bg-section">
+                            <ProjectsSection />
+                        </div>
+                        <div className="certifications bg-section">
+                            <Certifications />
+                        </div>
+                        <div className="blogs bg-section">
+                            <BlogsSection />
+                        </div>
+                        <div className="contact bg-section">
+                            <ContactSection />
+                        </div>
                     </div>
 
                     <CLI />
-                    <ThemeToggle />
                 </div>
             )}
         </>

@@ -21,11 +21,12 @@ const config: Config = {
         },
         background: {
           dark: "#0A0A0A", // Dark Background
-          light: "#F9FAFB", // Light Background
+          terminal: "#050505", // Terminal background
+          card: "rgba(0, 0, 0, 0.6)", // Card background with transparency
+          overlay: "rgba(10, 10, 10, 0.8)", // Overlay background
         },
         text: {
           dark: "#E5E7EB", // Light Text for Dark Mode
-          light: "#1F2937", // Dark Text for Light Mode
         },
       },
       // Custom Animations

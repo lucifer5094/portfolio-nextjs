@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileCode } from 'lucide-react';
+import { FileCode, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import webImage from '../assets/images/web_design.png'
 import pythonImage from '../assets/images/python.png';
@@ -39,14 +39,19 @@ const certifications = [
 
 export default function Certifications() {
     return (
-        <section id='certifications' className="py-20 px-4 md:px-8">
+        <section id='certifications' className="py-20 px-4 md:px-8 bg-gradient-to-b from-gray-950 to-gray-900">
             <motion.h2
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
                 className="text-4xl font-bold mb-12 text-center font-mono text-emerald-400"
             >
-                <div className="inline mr-2 flex justify-center gap-4 align-center">
-                    <FileCode /> Certifications
+                <div className="inline-flex items-center justify-center gap-3">
+                    <FileCode className="animate-pulse" /> 
+                    <span className="relative">
+                        Certifications
+                        <span className="absolute -bottom-2 left-0 w-full h-1 bg-emerald-400/50 rounded-full"></span>
+                    </span>
                 </div>
             </motion.h2>
 
@@ -57,22 +62,26 @@ export default function Certifications() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2 }}
-                        className="p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-gray-900 hover:bg-gray-800 text-white"
+                        className="p-6 rounded-xl shadow-lg border border-gray-800 transition-all duration-300 
+                        hover:shadow-emerald-500/10 hover:border-emerald-500/20 bg-gray-900/90 backdrop-blur-sm"
                     >
-                        <div className="flex items-center gap-4 ">
-
-                            <Image
-
-                                src={cert.logo}
-                                alt={cert.issuer}
-                                width={48} // Fixed size for Next.js optimization
-                                height={48}
-                                className="rounded-full"
-                            />
+                        <div className="flex items-center gap-5 mb-4">
+                            <div className="relative group">
+                                <div className="absolute inset-0 rounded-full bg-emerald-400/20 blur-md group-hover:bg-emerald-400/30 
+                                transition-all duration-300 scale-110"></div>
+                                <Image
+                                    src={cert.logo}
+                                    alt={cert.issuer}
+                                    width={56}
+                                    height={56}
+                                    className="rounded-full border-2 border-emerald-400 shadow-md shadow-emerald-400/20 
+                                    object-cover transition-all duration-300 hover:scale-110 hover:border-emerald-300 relative z-10"
+                                />
+                            </div>
 
                             <div>
                                 <h3 className="text-xl font-bold">{cert.title}</h3>
-                                <p className="text-emerald-400 mt-1">{cert.issuer}</p>
+                                <p className="text-emerald-400 mt-1 font-medium">{cert.issuer}</p>
                             </div>
                         </div>
                         {cert.link && (
@@ -80,9 +89,13 @@ export default function Certifications() {
                                 href={cert.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-4 inline-block text-sm text-emerald-300 hover:underline"
+                                className="mt-3 flex items-center gap-2 w-full justify-center py-2 px-4 
+                                bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 
+                                border border-emerald-500/30 rounded-lg transition-all duration-300 
+                                group font-medium"
                             >
-                                View Certificate
+                                <span>View Certificate</span>
+                                <ExternalLink size={16} className="transition-transform group-hover:translate-x-1" />
                             </a>
                         )}
                     </motion.div>

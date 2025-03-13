@@ -1,11 +1,33 @@
+/* stylelint-disable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable */
 
+/* Fix responsiveness and prevent horizontal scrollbar */
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-width: 100%; /* Ensure content doesn't exceed viewport width */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* All fixed positioned elements should respect the viewport boundaries */
+.fixed {
+    max-width: calc(100% - 16px); /* Ensure fixed elements don't exceed viewport width */
+}
 
+/* Ensure all full-width elements respect container */
+* {
+    box-sizing: border-box;
+}
+
+/* Force scrollbar to always be visible to prevent layout shifts */
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 
@@ -46,7 +68,6 @@ html {
 
 
 @layer utilities {
-
 
     .neon-text {
         text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d;
@@ -89,6 +110,28 @@ html {
         opacity: 0.1;
         pointer-events: none;
     }
+
+    /* Enhanced background styles */
+    .bg-pattern {
+        background-image: url('/grid.svg');
+        background-position: center;
+        background-repeat: repeat;
+        opacity: 0.1;
+    }
+
+    /* stylelint-disable */
+    .bg-section {
+        @apply relative bg-background-dark;
+    }
+
+    .terminal-bg {
+        @apply bg-gradient-to-b from-background-terminal to-gray-900;
+    }
+
+    .card-bg {
+        @apply bg-background-card backdrop-blur-sm border border-emerald-500/20;
+    }
+    /* stylelint-enable */
 }
 
 /* Index Page Ends Here */
