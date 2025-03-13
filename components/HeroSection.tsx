@@ -113,7 +113,7 @@ export default function HeroSection() {
                                 distance: 150,
                                 enable: true,
                                 opacity: 0.5,
-                                width: 1
+                                width: 0.0625 // Changed from 1px
                             },
                             move: {
                                 enable: true,
@@ -130,7 +130,7 @@ export default function HeroSection() {
                                 value: 0.5
                             },
                             size: {
-                                value: 1
+                                value: 0.0625 // Changed from 1px
                             }
                         },
                         detectRetina: true
@@ -213,7 +213,7 @@ export default function HeroSection() {
                 className="mt-4 flex flex-col items-center bg-black/60 text-green-300 p-4 rounded-lg w-full max-w-md font-mono text-sm md:text-base backdrop-blur-sm border border-emerald-500/20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                whileHover={{ boxShadow: "0 0 15px 2px rgba(16, 185, 129, 0.2)" }}
+                whileHover={{ boxShadow: "0 0 0.9375rem 0.125rem rgba(16, 185, 129, 0.2)" }}
                 style={{ rotateX, rotateY }}
             >
                 <p className="opacity-75">{time}</p>
@@ -240,7 +240,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="flex items-center gap-2 px-6 py-3 md:py-3.5 rounded-full font-mono border border-emerald-500 hover:bg-emerald-500/30 hover:shadow-[0_0_15px_2px_rgba(52,211,153,0.6)] transition-all duration-300"
+                    className="flex items-center gap-2 px-6 py-3 md:py-3.5 rounded-full font-mono border border-emerald-500 hover:bg-emerald-500/30 hover:shadow-[0_0_0.9375rem_0.125rem_rgba(52,211,153,0.6)] transition-all duration-300"
                 >
                     <Rocket size={20} className="animate-pulse" /> Explore Projects
                 </motion.button>
@@ -256,7 +256,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="flex items-center gap-2 px-6 py-3 md:py-3.5 rounded-full font-mono border border-purple-500 hover:bg-purple-500/30 hover:shadow-[0_0_15px_2px_rgba(168,85,247,0.6)] transition-all duration-300"
+                    className="flex items-center gap-2 px-6 py-3 md:py-3.5 rounded-full font-mono border border-purple-500 hover:bg-purple-500/30 hover:shadow-[0_0_0.9375rem_0.125rem_rgba(168,85,247,0.6)] transition-all duration-300"
                 >
                     <Terminal size={20} className="animate-pulse" /> Connect with me
                 </motion.button>

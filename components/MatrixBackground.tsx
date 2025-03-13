@@ -6,7 +6,7 @@ const MatrixBackground = () => {
   const animationRef = useRef<number | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-  const fontSize = 10;
+  const fontSize = 0.625; // Changed from 10px to 0.625rem
   const columns = useRef(0);
   const drops = useRef<number[]>([]);
   const speeds = useRef<number[]>([]); // Track variable speeds for each column
@@ -21,7 +21,7 @@ const MatrixBackground = () => {
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      columns.current = canvas.width / fontSize;
+      columns.current = canvas.width / (fontSize * 16); // Convert rem to px for calculation
       drops.current = Array(Math.floor(columns.current)).fill(0);
       // Initialize random speeds for each column
       speeds.current = Array(Math.floor(columns.current)).fill(0).map(() => 
@@ -45,12 +45,12 @@ const MatrixBackground = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `${fontSize}px monospace`;
+      ctx.font = `${fontSize}rem monospace`;
 
       for (let i = 0; i < drops.current.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize;
-        const y = drops.current[i] * fontSize;
+        const x = i * (fontSize * 16); // Convert rem to px for calculation
+        const y = drops.current[i] * (fontSize * 16); // Convert rem to px for calculation
 
         // Randomly make some characters white for highlight effects
         if (Math.random() > 0.98) {
@@ -71,7 +71,7 @@ const MatrixBackground = () => {
             speeds.current[i] = 0.05 + Math.random() * 0.15;
           }
         }
-
+        
         // Apply variable speed for each column
         drops.current[i] += speeds.current[i];
       }

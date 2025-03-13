@@ -376,7 +376,8 @@ export default function AboutSection() {
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-20px) translateX(10px); }
+          25% { transform: translateY(-1.25rem) translateX(0.625rem); }
+          50% { transform: translateY(-1.25rem) translateX(0.625rem); }
           100% { transform: translateY(0) translateX(0); }
         }
       `}</style>

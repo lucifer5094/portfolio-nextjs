@@ -16,7 +16,7 @@ html, body {
 
 /* All fixed positioned elements should respect the viewport boundaries */
 .fixed {
-    max-width: calc(100% - 16px); /* Ensure fixed elements don't exceed viewport width */
+    max-width: calc(100% - 1rem); /* Ensure fixed elements don't exceed viewport width (changed from 16px) */
 }
 
 /* Ensure all full-width elements respect container */
@@ -26,6 +26,7 @@ html, body {
 
 /* Force scrollbar to always be visible to prevent layout shifts */
 html {
+    -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     overflow-y: scroll;
 }
@@ -37,11 +38,11 @@ html {
 
     0%,
     100% {
-        text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d;
+        text-shadow: 0 0 0.625rem #00ff9d, 0 0 1.25rem #00ff9d, 0 0 1.875rem #00ff9d;
     }
 
     50% {
-        text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d;
+        text-shadow: 0 0 0.3125rem #00ff9d, 0 0 0.625rem #00ff9d, 0 0 0.9375rem #00ff9d;
     }
 }
 
@@ -51,7 +52,7 @@ html {
 
 /* Custom Terminal Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 0.5rem; /* Changed from 8px */
 }
 
 ::-webkit-scrollbar-track {
@@ -70,12 +71,12 @@ html {
 @layer utilities {
 
     .neon-text {
-        text-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d;
+        text-shadow: 0 0 0.3125rem #00ff9d, 0 0 0.625rem #00ff9d, 0 0 0.9375rem #00ff9d;
         animation: neon-pulse 2s infinite;
     }
 
     .glow-avatar {
-        filter: drop-shadow(0 0 15px rgba(0, 255, 157, 0.5));
+        filter: drop-shadow(0 0 0.9375rem rgba(0, 255, 157, 0.5));
     }
 
     @keyframes neon-pulse {
@@ -106,7 +107,7 @@ html {
                 rgba(0, 255, 157, 0.1) 75%,
                 transparent 75%,
                 transparent);
-        background-size: 4px 4px;
+        background-size: 0.25rem 0.25rem; /* Changed from 4px */
         opacity: 0.1;
         pointer-events: none;
     }

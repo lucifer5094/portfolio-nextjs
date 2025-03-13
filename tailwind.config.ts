@@ -37,14 +37,14 @@ const config: Config = {
       },
       keyframes: {
         "neon-pulse": {
-          "0%, 100%": { opacity: "1", textShadow: "0 0 10px #00FF9D, 0 0 20px #00FF9D, 0 0 30px #00FF9D" },
-          "50%": { opacity: "0.7", textShadow: "0 0 5px #00FF9D, 0 0 10px #00FF9D, 0 0 15px #00FF9D" },
+          "0%, 100%": { opacity: "1", textShadow: "0 0 0.625rem #00FF9D, 0 0 1.25rem #00FF9D, 0 0 1.875rem #00FF9D" },
+          "50%": { opacity: "0.7", textShadow: "0 0 0.3125rem #00FF9D, 0 0 0.625rem #00FF9D, 0 0 0.9375rem #00FF9D" },
         },
         "text-glitch": {
           "0%": { transform: "translate(0)" },
-          "25%": { transform: "translate(-2px, 2px)" },
-          "50%": { transform: "translate(2px, -2px)" },
-          "75%": { transform: "translate(-2px, 2px)" },
+          "25%": { transform: "translate(-0.125rem, 0.125rem)" },
+          "50%": { transform: "translate(0.125rem, -0.125rem)" },
+          "75%": { transform: "translate(-0.125rem, 0.125rem)" },
           "100%": { transform: "translate(0)" },
         },
         "matrix-rain": {
@@ -58,8 +58,8 @@ const config: Config = {
       },
       // Custom Shadows
       boxShadow: {
-        neon: "0 0 10px rgba(0, 255, 157, 0.5), 0 0 20px rgba(0, 255, 157, 0.3)",
-        "neon-lg": "0 0 20px rgba(0, 255, 157, 0.7), 0 0 40px rgba(0, 255, 157, 0.5)",
+        neon: "0 0 0.625rem rgba(0, 255, 157, 0.5), 0 0 1.25rem rgba(0, 255, 157, 0.3)",
+        "neon-lg": "0 0 1.25rem rgba(0, 255, 157, 0.7), 0 0 2.5rem rgba(0, 255, 157, 0.5)",
       },
     },
   },
