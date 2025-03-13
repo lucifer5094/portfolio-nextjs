@@ -145,26 +145,26 @@ export default function ContactSection() {
                 Contact Me
             </motion.h2>
 
-            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-1 gap-10">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     className="p-6 rounded-lg card-bg"
                 >
                     {/* Social Media Links */}
-                    <div className="flex flex-wrap justify-center gap-4 mt-6">
+                    <div className="flex flex-wrap justify-center gap-4 mt-3 mb-3">
                         {[
-                            { href: "https://github.com/lucifer5094", icon: <Github size={24} />, color: "hover:text-gray-400" },
-                            { href: "https://linkedin.com/in/lucifer5094", icon: <Linkedin size={24} />, color: "hover:text-blue-500" },
-                            { href: "https://x.com/AnkitRa55161882", icon: <Twitter size={24} />, color: "hover:text-sky-500" },
-                            { href: "https://leetcode.com/u/lucifer5094/", icon: <SiLeetcode size={24} />, color: "hover:text-yellow-500" },
-                            { href: "https://www.codechef.com/users/lucifer5094", icon: <SiCodechef size={24} />, color: "hover:text-orange-500" },
-                            { href: "https://www.hackerrank.com/profile/lucifer5094", icon: <SiHackerrank size={24} />, color: "hover:text-green-500" },
-                            { href: "https://codeforces.com/profile/Ankitraj5094", icon: <SiCodeforces size={24} />, color: "hover:text-red-500" },
-                            { href: "https://www.hackerearth.com/@ankitraj85455", icon: <SiHackerearth size={24} />, color: "hover:text-purple-500" },
-                            { href: "https://www.kaggle.com/lucifer5094", icon: <SiKaggle size={24} />, color: "hover:text-blue-400" },
-                            { href: "https://stackoverflow.com/users/23595116/lucifer", icon: <SiStackoverflow size={24} />, color: "hover:text-orange-400" },
-                            { href: "https://wa.me/917492092001", icon: <SiWhatsapp size={24} />, color: "hover:text-green-400" },
+                            { href: "https://github.com/lucifer5094", icon: <Github size={30} />, color: "hover:text-gray-400" },
+                            { href: "https://linkedin.com/in/lucifer5094", icon: <Linkedin size={30} />, color: "hover:text-blue-500" },
+                            { href: "https://x.com/AnkitRa55161882", icon: <Twitter size={30} />, color: "hover:text-sky-500" },
+                            { href: "https://leetcode.com/u/lucifer5094/", icon: <SiLeetcode size={30} />, color: "hover:text-yellow-500" },
+                            { href: "https://www.codechef.com/users/lucifer5094", icon: <SiCodechef size={30} />, color: "hover:text-orange-500" },
+                            { href: "https://www.hackerrank.com/profile/lucifer5094", icon: <SiHackerrank size={30} />, color: "hover:text-green-500" },
+                            { href: "https://codeforces.com/profile/Ankitraj5094", icon: <SiCodeforces size={30} />, color: "hover:text-red-500" },
+                            { href: "https://www.hackerearth.com/@ankitraj85455", icon: <SiHackerearth size={30} />, color: "hover:text-purple-500" },
+                            { href: "https://www.kaggle.com/lucifer5094", icon: <SiKaggle size={30} />, color: "hover:text-blue-400" },
+                            { href: "https://stackoverflow.com/users/23595116/lucifer", icon: <SiStackoverflow size={30} />, color: "hover:text-orange-400" },
+                            { href: "https://wa.me/917492092001", icon: <SiWhatsapp size={30} />, color: "hover:text-green-400" },
                         ].map((item, index) => (
                             <a
                                 key={index}
