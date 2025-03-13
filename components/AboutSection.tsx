@@ -233,7 +233,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="py-20 px-4 md:px-8 bg-section" id="about">
+    <section className="py-20 px-4 md:px-8" id="about">
 
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -323,7 +323,7 @@ export default function AboutSection() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-3 py-1 text-xs rounded-full transition-all ${activeCategory === category
-                  ? 'bg-emerald-500 text-black font-medium'
+                  ? 'bg-emerald-500 text-white font-medium'
                   : 'bg-emerald-900/20 text-emerald-400 hover:bg-emerald-900/40 border border-emerald-500/20'
                   }`}
               >
@@ -347,7 +347,7 @@ export default function AboutSection() {
                     className="p-3 rounded-lg card-bg hover:bg-emerald-500/10 flex flex-col items-center justify-center relative group"
                   >
                     <tech.icon />
-                    <span className="text-xs text-center">{tech.name}</span>
+                    <span className="text-xs text-white text-center">{tech.name}</span>
                     <LevelBadge level={tech.level} />
                   </motion.div>
                 ))}

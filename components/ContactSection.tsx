@@ -136,7 +136,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-20 px-4 bg-section">
+        <section id="contact" className="py-20 px-4">
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ export default function ContactSection() {
                     className="p-6 rounded-lg card-bg"
                 >
                     {/* Social Media Links */}
-                    <div className="flex flex-wrap gap-4 mt-6">
+                    <div className="flex flex-wrap justify-center gap-4 mt-6">
                         {[
                             { href: "https://github.com/lucifer5094", icon: <Github size={24} />, color: "hover:text-gray-400" },
                             { href: "https://linkedin.com/in/lucifer5094", icon: <Linkedin size={24} />, color: "hover:text-blue-500" },
@@ -211,11 +211,12 @@ export default function ContactSection() {
                     />
                     <motion.button
                         type="submit"
-                        whileHover={{ scale: isSubmitting || cooldown ? 1 : 1.05 }}
-                        className={`w-full py-3 rounded-lg font-bold transition-all duration-300 ${
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`w-full py-3 rounded-lg font-medium transition-colors ${
                             isSubmitting || cooldown
-                                ? 'bg-gray-500 cursor-not-allowed'
-                                : 'bg-blue-600 hover:bg-green-700'
+                                ? 'bg-gray-500 text-white cursor-not-allowed'
+                                : 'bg-blue-600 hover:bg-green-700 text-white'
                         }`}
                         disabled={isSubmitting || cooldown}
                     >

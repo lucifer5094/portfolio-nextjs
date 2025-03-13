@@ -106,7 +106,7 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section className="py-20 px-4 md:px-8 bg-section">
+    <section className="py-20 px-4 md:px-8">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export default function ProjectsSection() {
               onClick={() => setActiveFilter(filter.value)}
               className={`px-4 py-2 rounded-full text-sm transition-colors ${
                 activeFilter === filter.value
-                  ? 'bg-emerald-500 text-black font-medium'
+                  ? 'bg-emerald-500 text-white font-medium'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >

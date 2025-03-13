@@ -39,18 +39,17 @@ export default function BlogsSection() {
                 {'$ Blogs'}
             </motion.h2>
 
-            <div className='max-w-3xl mx-auto flex flex-col gap-8'>
+            <div className='max-w-6xl mx-auto flex flex-col gap-8'>
                 {blogs.map((blog, index) => (
                     <motion.div
                         key={blog.id}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2 }}
-                        className='p-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 bg-gray-900 hover:bg-gray-800 border border-gray-800 flex flex-col w-full'
+                        className='p-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 card-bg flex flex-col w-full'
                     >
                         <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                             <div className="absolute inset-0 bg-emerald-600/20 backdrop-blur-sm flex items-center justify-center">
-                                {/* Replace with actual images in your public folder */}
                                 <span className="text-emerald-400 font-bold">{blog.title.split(':')[0]}</span>
                             </div>
                         </div>

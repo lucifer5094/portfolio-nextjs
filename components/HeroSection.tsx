@@ -175,7 +175,7 @@ export default function HeroSection() {
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
                 >
-                    <span className="text-black text-xs font-bold">3D</span>
+                    <span className="text-white text-xs font-bold">3D</span>
                 </motion.div>
             </motion.div>
 
@@ -223,7 +223,7 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <motion.div 
-                className="flex flex-wrap justify-center gap-4 mt-6"
+                className="flex flex-wrap justify-center gap-4 mt-6 text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}

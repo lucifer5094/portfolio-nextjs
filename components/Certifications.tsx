@@ -39,7 +39,7 @@ const certifications = [
 
 export default function Certifications() {
     return (
-        <section id='certifications' className="py-20 px-4 md:px-8 bg-gradient-to-b from-gray-950 to-gray-900">
+        <section id='certifications' className="py-20 px-4 md:px-8">
             <motion.h2
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -80,7 +80,7 @@ export default function Certifications() {
                             </div>
 
                             <div>
-                                <h3 className="text-xl font-bold">{cert.title}</h3>
+                                <h3 className="text-xl font-bold text-white">{cert.title}</h3>
                                 <p className="text-emerald-400 mt-1 font-medium">{cert.issuer}</p>
                             </div>
                         </div>

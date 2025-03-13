@@ -33,16 +33,16 @@ const HomePage = () => {
                     <div className="relative w-full mx-auto">
                         <HeroSection />
                         <AboutSection />
-                        <div id='projects' className="bg-section">
+                        <div id='projects'>
                             <ProjectsSection />
                         </div>
-                        <div className="certifications bg-section">
+                        <div className="certifications">
                             <Certifications />
                         </div>
-                        <div className="blogs bg-section">
+                        <div className="blogs">
                             <BlogsSection />
                         </div>
-                        <div className="contact bg-section">
+                        <div className="contact">
                             <ContactSection />
                         </div>
                     </div>

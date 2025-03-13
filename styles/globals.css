@@ -12,6 +12,9 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-size-adjust: 100%; /* Prevent text resizing */
+    -webkit-text-size-adjust: 100%; /* For Safari */
+    font-size: 100%; /* Ensure consistent base font size */
 }
 
 /* All fixed positioned elements should respect the viewport boundaries */
