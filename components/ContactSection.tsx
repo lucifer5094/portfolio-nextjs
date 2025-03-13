@@ -215,9 +215,7 @@ export default function ContactSection() {
                         className={`w-full py-3 rounded-lg font-bold transition-all duration-300 ${
                             isSubmitting || cooldown
                                 ? 'bg-gray-500 cursor-not-allowed'
-                                : isDark
-                                    ? 'bg-blue-600 hover:bg-green-700'
-                                    : 'bg-blue-600 hover:bg-green-700'
+                                : 'bg-blue-600 hover:bg-green-700'
                         }`}
                         disabled={isSubmitting || cooldown}
                     >

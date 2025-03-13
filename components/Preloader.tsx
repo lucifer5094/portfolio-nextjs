@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Preloader({ onLoaded }: { onLoaded: () => void }) {
@@ -7,7 +7,7 @@ export default function Preloader({ onLoaded }: { onLoaded: () => void }) {
     const [loadingComplete, setLoadingComplete] = useState(false);
     const [progress, setProgress] = useState(0);
     const [showCursor, setShowCursor] = useState(true);
-    const [systemInfo, setSystemInfo] = useState({
+    const [systemInfo] = useState({
         cpu: "Neural Processor X1",
         memory: "32TB Quantum Memory",
         os: "DevOS v4.2.1",

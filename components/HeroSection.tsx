@@ -17,7 +17,7 @@ const facts = [
     "Machine learning is used in healthcare for disease prediction!"
 ];
 
-export default function HeroSection({ isDark }: { isDark: boolean }) {
+export default function HeroSection() {
     // Intro Text Rotation
     const words = ['Hello World!', 'Welcome to My Portfolio'];
     const [textIndex, setTextIndex] = useState(0);

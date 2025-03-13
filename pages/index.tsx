@@ -14,7 +14,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 const HomePage = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const { isDark } = useTheme();
+    const {  } = useTheme();
 
     useEffect(() => {
         const timer = setTimeout(() => setIsLoading(false), 12000);
@@ -31,7 +31,7 @@ const HomePage = () => {
                     <Analytics />
                     {/* Content container with max-width to prevent overflow */}
                     <div className="relative w-full mx-auto">
-                        <HeroSection isDark={true} />
+                        <HeroSection />
                         <AboutSection />
                         <div id='projects' className="bg-section">
                             <ProjectsSection />

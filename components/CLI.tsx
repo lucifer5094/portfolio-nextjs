@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
 
 interface CommandHandler {
     execute: () => void;
@@ -13,7 +12,6 @@ const CLI = () => {
     const [showCli, setShowCli] = useState(false);
     const [command, setCommand] = useState("");
     const [output, setOutput] = useState("");
-    const { isDark } = useTheme();
 
     const scrollToSection = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });

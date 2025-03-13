@@ -1,6 +1,5 @@
 'use client';
-import React, { createContext, useContext, useEffect } from 'react';
-import { useTheme as useNextTheme } from 'next-themes';
+import React, { createContext, useContext } from 'react';
 
 type ThemeContextType = {
   isDark: boolean;
@@ -11,13 +10,6 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { setTheme } = useNextTheme();
-  
-  // Always set theme to dark on mount
-  useEffect(() => {
-    setTheme('dark');
-  }, [setTheme]);
-
   return (
     <ThemeContext.Provider value={{
       isDark: true,

@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -24,8 +23,6 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <ThemeToggle />
-        
         {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-white focus:outline-none"
