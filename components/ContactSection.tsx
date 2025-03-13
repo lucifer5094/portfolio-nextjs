@@ -4,10 +4,10 @@ import emailjs from "@emailjs/browser";
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import { SiLeetcode, SiCodechef, SiHackerrank, SiCodeforces, SiHackerearth, SiKaggle, SiStackoverflow, SiWhatsapp } from "react-icons/si";
-import { useTheme } from '@/context/ThemeContext';
+
 
 export default function ContactSection() {
-    const { isDark } = useTheme();
+    
     const [formData, setFormData] = useState({ email: "", message: "" });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formStatus, setFormStatus] = useState({ message: "", isError: false });
