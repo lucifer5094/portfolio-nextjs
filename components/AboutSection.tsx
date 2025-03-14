@@ -123,7 +123,7 @@ export default function AboutSection() {
         const timer = setTimeout(() => {
           setVisibleText('');
           setCurrentLine(prev => prev + 1);
-        }, line.startsWith('$') ? 1000 : 500);
+        }, line.startsWith('$') ? 300 : 100);  // Reduced delays from 1000/500ms to 300/100ms
 
         return () => clearTimeout(timer);
       }
@@ -179,10 +179,10 @@ export default function AboutSection() {
       } else if (cmd === 'contact') {
         response = [
           'Contact Information:',
-          ' - Email: ankit@example.com',
-          ' - LinkedIn: linkedin.com/in/ankitraj',
-          ' - GitHub: github.com/ankitraj',
-          ' - Twitter: @ankitraj'
+          ` - Email: ${process.env.NEXT_PUBLIC_EMAIL}`,
+          ` - LinkedIn: ${process.env.NEXT_PUBLIC_LINKEDIN_URL.replace('https://', '')}`,
+          ` - GitHub: ${process.env.NEXT_PUBLIC_GITHUB_URL.replace('https://', '')}`,
+          ` - Twitter: ${process.env.NEXT_PUBLIC_TWITTER_URL.replace('https://', '@AnkitRa55161882')}`
         ];
       } else if (cmd === 'projects') {
         response = [
@@ -282,7 +282,7 @@ export default function AboutSection() {
               <>
                 {/* Terminal output from user commands */}
                 {terminalOutput.map((line, index) => (
-                  <div key={`output-${index}`} className={`mt-1 ${line.startsWith('$') ? 'text-emerald-400' : line.includes(':') && !line.includes(':') ? 'text-yellow-300' : 'text-gray-200'}`}>
+                  <div key={`output-${index}`} className={`mt-1 ${line.startsWith('$') ? 'text-emerald-400' : line.includes(':') ? 'text-yellow-300' : 'text-gray-200'}`}>
                     {line}
                   </div>
                 ))}

@@ -85,13 +85,13 @@ export default function ContactSection() {
 
         try {
             const response = await emailjs.send(
-                "service_4luhoc8",
-                "template_e6zi93e",
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
                 {
                     user_email: formData.email,
                     message: formData.message,
                 },
-                "rUBrSjAOzvAKZKd3c"
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
             );
 
             clearTimeout(timeoutId);
@@ -154,17 +154,17 @@ export default function ContactSection() {
                     {/* Social Media Links */}
                     <div className="flex flex-wrap justify-center gap-4 mt-3 mb-3">
                         {[
-                            { href: "https://github.com/lucifer5094", icon: <Github size={30} />, color: "hover:text-gray-400" },
-                            { href: "https://linkedin.com/in/lucifer5094", icon: <Linkedin size={30} />, color: "hover:text-blue-500" },
-                            { href: "https://x.com/AnkitRa55161882", icon: <Twitter size={30} />, color: "hover:text-sky-500" },
-                            { href: "https://leetcode.com/u/lucifer5094/", icon: <SiLeetcode size={30} />, color: "hover:text-yellow-500" },
-                            { href: "https://www.codechef.com/users/lucifer5094", icon: <SiCodechef size={30} />, color: "hover:text-orange-500" },
-                            { href: "https://www.hackerrank.com/profile/lucifer5094", icon: <SiHackerrank size={30} />, color: "hover:text-green-500" },
-                            { href: "https://codeforces.com/profile/Ankitraj5094", icon: <SiCodeforces size={30} />, color: "hover:text-red-500" },
-                            { href: "https://www.hackerearth.com/@ankitraj85455", icon: <SiHackerearth size={30} />, color: "hover:text-purple-500" },
-                            { href: "https://www.kaggle.com/lucifer5094", icon: <SiKaggle size={30} />, color: "hover:text-blue-400" },
-                            { href: "https://stackoverflow.com/users/23595116/lucifer", icon: <SiStackoverflow size={30} />, color: "hover:text-orange-400" },
-                            { href: "https://wa.me/917492092001", icon: <SiWhatsapp size={30} />, color: "hover:text-green-400" },
+                            { href: process.env.NEXT_PUBLIC_GITHUB_URL, icon: <Github size={30} />, color: "hover:text-gray-400" },
+                            { href: process.env.NEXT_PUBLIC_LINKEDIN_URL, icon: <Linkedin size={30} />, color: "hover:text-blue-500" },
+                            { href: process.env.NEXT_PUBLIC_TWITTER_URL, icon: <Twitter size={30} />, color: "hover:text-sky-500" },
+                            { href: process.env.NEXT_PUBLIC_LEETCODE_URL, icon: <SiLeetcode size={30} />, color: "hover:text-yellow-500" },
+                            { href: process.env.NEXT_PUBLIC_CODECHEF_URL, icon: <SiCodechef size={30} />, color: "hover:text-orange-500" },
+                            { href: process.env.NEXT_PUBLIC_HACKERRANK_URL, icon: <SiHackerrank size={30} />, color: "hover:text-green-500" },
+                            { href: process.env.NEXT_PUBLIC_CODEFORCES_URL, icon: <SiCodeforces size={30} />, color: "hover:text-red-500" },
+                            { href: process.env.NEXT_PUBLIC_HACKEREARTH_URL, icon: <SiHackerearth size={30} />, color: "hover:text-purple-500" },
+                            { href: process.env.NEXT_PUBLIC_KAGGLE_URL, icon: <SiKaggle size={30} />, color: "hover:text-blue-400" },
+                            { href: process.env.NEXT_PUBLIC_STACKOVERFLOW_URL, icon: <SiStackoverflow size={30} />, color: "hover:text-orange-400" },
+                            { href: process.env.NEXT_PUBLIC_WHATSAPP_URL, icon: <SiWhatsapp size={30} />, color: "hover:text-green-400" },
                         ].map((item, index) => (
                             <a
                                 key={index}
