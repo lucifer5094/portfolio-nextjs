@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { IconContext } from 'react-icons';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import {
   SiPython, SiTensorflow, SiPytorch, SiNextdotjs, SiTailwindcss,
   SiKeras, SiHuggingface, SiScikitlearn, SiPandas, SiNumpy,
@@ -60,7 +60,7 @@ export default function AboutSection() {
   const terminalRef = useRef<HTMLDivElement>(null);
   const { playTypingSound } = useTypingSound();
 
-  const terminalLines = [
+  const terminalLines = useMemo(() => [
     '$ whoami',
     "Ankit Raj ~ Full-Stack AI/ML Developer",
     '',
@@ -77,7 +77,7 @@ export default function AboutSection() {
     '',
     '💀 Ready to explore the future? Let\'s dive in! 💀',
     '',
-  ];
+  ], []);
 
   // Typing effect with variable speed and occasional "typos"
   useEffect(() => {

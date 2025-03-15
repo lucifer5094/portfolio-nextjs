@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
 const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,12 +23,12 @@ const MatrixBackground = () => {
   
   // EFFECT: Color variation - creates a more visually rich display
   // with subtle variations of the emerald green theme
-  const colorVariations = [
+  const colorVariations = useMemo(() => [
     { r: 0, g: 255, b: 157 }, // Default emerald
     { r: 50, g: 255, b: 180 }, // Light emerald
     { r: 0, g: 230, b: 140 }, // Dark emerald
     { r: 0, g: 200, b: 100 }, // Very dark emerald
-  ];
+  ], []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -149,7 +149,7 @@ const MatrixBackground = () => {
       window.removeEventListener('resize', resize);
       observer.disconnect();
     };
-  }, [isVisible]);
+  }, [isVisible, colorVariations]);
 
   return (
     <canvas

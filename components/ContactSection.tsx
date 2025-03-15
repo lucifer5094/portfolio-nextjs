@@ -186,21 +186,30 @@ export default function ContactSection() {
                     isError: true
                 });
             }
-        } catch (error: any) { // Explicitly typing error as any for handling
+        } catch (error: unknown) { // Use unknown instead of any for better type safety
             clearTimeout(timeoutId);
             
             // Handle specific error types
-            if (error.name === 'AbortError') {
-                setFormStatus({ 
-                    message: "Request was aborted. Please try again later ❌", 
-                    isError: true 
-                });
+            if (error instanceof Error) {
+                if (error.name === 'AbortError') {
+                    setFormStatus({ 
+                        message: "Request was aborted. Please try again later ❌", 
+                        isError: true 
+                    });
+                } else {
+                    setFormStatus({
+                        message: `Error: ${error.message || "Failed to send message"} ❌`,
+                        isError: true
+                    });
+                    console.error("EmailJS Error:", error);
+                }
             } else {
+                // Handle case where error is not an Error instance
                 setFormStatus({
-                    message: `Error: ${error.message || "Failed to send message"} ❌`,
+                    message: "An unexpected error occurred ❌",
                     isError: true
                 });
-                console.error("EmailJS Error:", error);
+                console.error("Unknown EmailJS Error:", error);
             }
         } finally {
             setIsSubmitting(false);
