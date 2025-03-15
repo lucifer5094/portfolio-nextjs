@@ -187,26 +187,22 @@ export default function AboutSection() {
       } else if (cmd === 'projects') {
         response = [
           'Featured Projects:',
-          ' - AI Chatbot with NLP capabilities',
-          ' - Computer Vision model for medical imaging',
-          ' - Full-stack web application for data visualization',
-          ' - Machine Learning pipeline with MLOps integration'
+          ' - AI GPT Model using ML,DL,NLP,etc...',
         ];
       } else if (cmd === 'experience') {
         response = [
           'Work Experience:',
           ' - Founder & Developer @ AlgoGenesis (2025-Present)',
-          ' - Lead AI Developer @ cureAI (2025-Present)',
-          ' - Full-Stack Developer @ QuizNova (2025-Present)',
+          ' - Front-End Developer @ QuizNova (2025-Present)',
           ' - AI & ML Researcher @ Personal Projects (2023-Present)',
-          ' - GFG Campus Ambassador (Dec 2024-Dec 2025)'
+          ' - GeeksForGeeks Campus Ambassador (Dec 2024-Dec 2025)'
         ];
 
       } else if (cmd === 'education') {
         response = [
           'Education:',
-          ' - M.S. in Computer Science, AI Specialization',
-          ' - B.Tech in Computer Science and Engineering'
+          ' - B.Tech in Computer Science and Engineering',
+          'specialization in Artificial Intelligence and Machine Learning.'
         ];
       } else {
         response = [`Command not found: ${userCommand}. Type 'help' for available commands.`];
