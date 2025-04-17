@@ -2,11 +2,12 @@
 import { useState, useRef, useEffect, FormEvent, ChangeEvent, JSX } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { SiLeetcode, SiCodechef, SiHackerrank, SiCodeforces, SiHackerearth, SiKaggle, SiStackoverflow, SiWhatsapp } from "react-icons/si";
 
 // Define proper types
 interface FormData {
+    name: string; // Added name field
     email: string;
     message: string;
 }
@@ -17,14 +18,14 @@ interface FormStatus {
 }
 
 interface SocialLink {
-    href: string | undefined;
+    href: string; // Changed to string instead of string | undefined
     icon: JSX.Element;
     color: string;
     label: string; // For accessibility
 }
 
 export default function ContactSection() {
-    const [formData, setFormData] = useState<FormData>({ email: "", message: "" });
+    const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" }); // Added name
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [formStatus, setFormStatus] = useState<FormStatus>({ message: "", isError: false });
     const [cooldown, setCooldown] = useState<boolean>(false);
@@ -52,6 +53,12 @@ export default function ContactSection() {
     }, []);
 
     const validateForm = (): boolean => {
+        // Name validation
+        if (formData.name.trim().length < 2) {
+            setFormStatus({ message: "Please enter your name ❌", isError: true });
+            return false;
+        }
+        
         // More robust email validation with regex
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         if (!emailRegex.test(formData.email)) {
@@ -96,6 +103,9 @@ export default function ContactSection() {
         if (e.target.name === "email") {
             // Limit email length for security
             value = value.slice(0, 100);
+        } else if (e.target.name === "name") {
+            // Limit name length for security
+            value = value.slice(0, 50);
         }
         
         setFormData({ ...formData, [e.target.name]: value });
@@ -152,6 +162,7 @@ export default function ContactSection() {
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
                 process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
                 {
+                    user_name: formData.name,
                     user_email: formData.email,
                     message: formData.message,
                     csrf_token: csrfToken // Send token with the request
@@ -173,7 +184,7 @@ export default function ContactSection() {
                     message: "Message sent successfully! I'll get back to you soon ✅",
                     isError: false
                 });
-                setFormData({ email: "", message: "" }); // Clear the form
+                setFormData({ name: "", email: "", message: "" }); // Clear the form
                 
                 // Set cooldown to prevent spam
                 setCooldown(true);
@@ -216,19 +227,19 @@ export default function ContactSection() {
         }
     };
 
-    // Define social links with proper accessibility
+    // Define social links with proper accessibility and fallback URLs
     const socialLinks: SocialLink[] = [
-        { href: process.env.NEXT_PUBLIC_GITHUB_URL, icon: <Github size={30} />, color: "hover:text-gray-400", label: "GitHub" },
-        { href: process.env.NEXT_PUBLIC_LINKEDIN_URL, icon: <Linkedin size={30} />, color: "hover:text-blue-500", label: "LinkedIn" },
-        { href: process.env.NEXT_PUBLIC_TWITTER_URL, icon: <Twitter size={30} />, color: "hover:text-sky-500", label: "Twitter" },
-        { href: process.env.NEXT_PUBLIC_LEETCODE_URL, icon: <SiLeetcode size={30} />, color: "hover:text-yellow-500", label: "LeetCode" },
-        { href: process.env.NEXT_PUBLIC_CODECHEF_URL, icon: <SiCodechef size={30} />, color: "hover:text-orange-500", label: "CodeChef" },
-        { href: process.env.NEXT_PUBLIC_HACKERRANK_URL, icon: <SiHackerrank size={30} />, color: "hover:text-green-500", label: "HackerRank" },
-        { href: process.env.NEXT_PUBLIC_CODEFORCES_URL, icon: <SiCodeforces size={30} />, color: "hover:text-red-500", label: "Codeforces" },
-        { href: process.env.NEXT_PUBLIC_HACKEREARTH_URL, icon: <SiHackerearth size={30} />, color: "hover:text-purple-500", label: "HackerEarth" },
-        { href: process.env.NEXT_PUBLIC_KAGGLE_URL, icon: <SiKaggle size={30} />, color: "hover:text-blue-400", label: "Kaggle" },
-        { href: process.env.NEXT_PUBLIC_STACKOVERFLOW_URL, icon: <SiStackoverflow size={30} />, color: "hover:text-orange-400", label: "Stack Overflow" },
-        { href: process.env.NEXT_PUBLIC_WHATSAPP_URL, icon: <SiWhatsapp size={30} />, color: "hover:text-green-400", label: "WhatsApp" },
+        { href: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/lucifer5094', icon: <Github size={30} />, color: "hover:text-gray-400", label: "GitHub" },
+        { href: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/lucifer5094/', icon: <Linkedin size={30} />, color: "hover:text-blue-500", label: "LinkedIn" },
+        { href: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com/AnkitRa55161882', icon: <Twitter size={30} />, color: "hover:text-sky-500", label: "Twitter" },
+        { href: process.env.NEXT_PUBLIC_LEETCODE_URL || 'https://leetcode.com/', icon: <SiLeetcode size={30} />, color: "hover:text-yellow-500", label: "LeetCode" },
+        { href: process.env.NEXT_PUBLIC_CODECHEF_URL || 'https://www.codechef.com/', icon: <SiCodechef size={30} />, color: "hover:text-orange-500", label: "CodeChef" },
+        { href: process.env.NEXT_PUBLIC_HACKERRANK_URL || 'https://www.hackerrank.com/', icon: <SiHackerrank size={30} />, color: "hover:text-green-500", label: "HackerRank" },
+        { href: process.env.NEXT_PUBLIC_CODEFORCES_URL || 'https://codeforces.com/', icon: <SiCodeforces size={30} />, color: "hover:text-red-500", label: "Codeforces" },
+        { href: process.env.NEXT_PUBLIC_HACKEREARTH_URL || 'https://www.hackerearth.com/', icon: <SiHackerearth size={30} />, color: "hover:text-purple-500", label: "HackerEarth" },
+        { href: process.env.NEXT_PUBLIC_KAGGLE_URL || 'https://www.kaggle.com/', icon: <SiKaggle size={30} />, color: "hover:text-blue-400", label: "Kaggle" },
+        { href: process.env.NEXT_PUBLIC_STACKOVERFLOW_URL || 'https://stackoverflow.com/', icon: <SiStackoverflow size={30} />, color: "hover:text-orange-400", label: "Stack Overflow" },
+        { href: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/', icon: <SiWhatsapp size={30} />, color: "hover:text-green-400", label: "WhatsApp" },
     ];
 
     return (
@@ -241,12 +252,25 @@ export default function ContactSection() {
                 Contact Me
             </motion.h2>
 
-            <div className="max-w-6xl mx-auto grid md:grid-cols-1 gap-10">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     className="p-6 rounded-lg card-bg"
                 >
+                    <h3 className="text-xl font-semibold mb-4 text-emerald-300 text-center">Connect With Me</h3>
+                    
+                    {/* Direct contact info */}
+                    <div className="mb-6 text-center">
+                        <a 
+                            href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'ankit@example.com'}`}
+                            className="flex items-center justify-center gap-2 text-white hover:text-emerald-400 transition-all"
+                        >
+                            <Mail size={20} />
+                            <span>{process.env.NEXT_PUBLIC_EMAIL || 'ankit@example.com'}</span>
+                        </a>
+                    </div>
+                    
                     {/* Social Media Links with improved accessibility */}
                     <div className="flex flex-wrap justify-center gap-4 mt-3 mb-3">
                         {socialLinks.map((item, index) => (
@@ -275,6 +299,22 @@ export default function ContactSection() {
                         type="hidden" 
                         name="csrf_token" 
                         value={csrfToken} 
+                    />
+                    
+                    {/* Name field */}
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        required
+                        className={`w-full p-3 rounded-lg bg-background-terminal text-white ${
+                            formStatus.isError ? 'border-2 border-red-500' : ''
+                        }`}
+                        disabled={isSubmitting || cooldown}
+                        aria-label="Your name"
+                        maxLength={50}
                     />
                     
                     <input
@@ -312,7 +352,7 @@ export default function ContactSection() {
                         className={`w-full py-3 rounded-lg font-medium transition-colors ${
                             isSubmitting || cooldown
                                 ? 'bg-gray-500 text-white cursor-not-allowed'
-                                : 'bg-blue-600 hover:bg-green-700 text-white'
+                                : 'bg-emerald-600 hover:bg-emerald-700 text-white'
                         }`}
                         disabled={isSubmitting || cooldown}
                     >
